@@ -1,17 +1,35 @@
-var jason = {
-    "idade" : "25",
-    "casa" : "japao",
-    "genero": "fluid"
-};
-#cria o objeto jason que pode ser acessado 
+{
+  "id": 2,
+  "name": "Rota da biblioteca ao auditório",
+  "points": [
+    {
+      "name": "Tag em frente a biblioteca",
+      "id": 27,
+      "rfid": "hgasjhgasgk",
+      "function": "f"
+    },
+    {
+      "name": "Tag em frente ao autorio em baixo da escada",
+      "id": 28,
+      "rfid": "asdfasfdf",
+      "function": "r"
+    }
+  ]
+}
 
-print(jason.idade)
+resposta = request.get('julinho/rotas/2')
+jsonretornado = resposta.json()
 
 
+lista_de_pontos = []
+for point in jsonretornado.points:
+  list_de_pontos.append(point.rfid + '-' + point.function)
+
+lista_de_pontos.join(';')
 
 
 julinho =  {
-        rota1 = {
+        rota1: {
             "ID": {
                 "ID1": "1",
                 "ID2": "2",
@@ -19,18 +37,18 @@ julinho =  {
                 "ID4": "4",
                 "ID5": "5"
             },
-            "Função": {
+            "Funcao": {
                "ligar": "l",
                 "frente": "f",
                 "direita": "d",
                 "esquerda": "e",
                 "para": "p",
-                "socorro": "c",
-                "trabalhando": "b",
+                "socorro": "s",
+                "trabalhando": "t",
                 "online": "o"
            }
        },
-       rota2 = {
+       rota2: {
             "ID": {
                 "ID6": "6",
                 "ID7": "7",
@@ -38,7 +56,7 @@ julinho =  {
                 "ID9": "9",
                 "ID10": "10"
            },
-            "Função": {
+            "Funcao": {
                 "ligar": "l",
                 "frente": "f",
                 "direita": "d",
