@@ -1,36 +1,37 @@
 import paho.mqtt.client as mqtt
 
+def not_empty(str):
+    return str != ''
 
-# The callback for when the client receives a CONNACK response from the server.
+def sos(msg):
+    print('sos ' + msg)
+    pass
+
+def enable(msg):
+    print('enable ' + msg)
+    pass
+
+def check(msg):
+    print('check ' + msg)
+    pass
+
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-
-    # Subscribing in on_connect() means that if we lose the connection and
-    # reconnect then subscriptions will be renewed.
     client.subscribe("julinho/#")
 
-# The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    for item in msg.topic.split('/'):
-      if item != '':
-        print(item)
-    print(msg.payload)
+    topic = filter(not_empty, msg.topic.split('/'))  #split transforma em lista, separados   # ex, nesse caso julinho/sos ficaria ['julinho', 'sos']
+        
+    if topic[1] == 'sos':
+        sos(msg.payload)
+    elif topic[1] == 'enable':
+        enable(msg.payload)
+    elif topic[1] == 'check':
+        check(msg.payload)
+            
 
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
 client.connect("iot.eclipse.org", 1883, 60)
-
-# Blocking call that processes network traffic, dispatches callbacks and
-# handles reconnecting.
-# Other loop*() functions are available that give a threaded interface and a
-# manual interface.
 client.loop_forever()
-
-
-
-
-def sos():
-  for item in
-  if msg.topic != 'julinho/sos'
