@@ -37,34 +37,28 @@ julinho =  {
                 "ID4": "4",
                 "ID5": "5"
             },
-            "Funcao": {
+            "funcao": {
                "ligar": "l",
                 "frente": "f",
                 "direita": "d",
                 "esquerda": "e",
-                "para": "p",
-                "socorro": "s",
-                "trabalhando": "t",
-                "online": "o"
+                "parar": "p",
            }
        },
        rota2: {
             "ID": {
-                "ID6": "6",
+                "ID": [1,5,8],
                 "ID7": "7",
                 "ID8": "8",
                 "ID9": "9",
                 "ID10": "10"
            },
-            "Funcao": {
+            "funcao": {
                 "ligar": "l",
                 "frente": "f",
                 "direita": "d",
                 "esquerda": "e",
-                "para": "p",
-                "socorro": "s",
-                "trabalhando": "t",
-                "online": "o"
+                "parar": "p",
           }
       }
 };

@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "name": "firstRoute",
+  "points": [
+    {
+      "id": 22,
+      "name": "classroom",
+      "rfid": "123456789",
+      "action": "d"
+    },
+    {
+      "id": 21,
+      "name": "library",
+      "rfid": "123456",
+      "action": "e"
+    }
+  ]
+}
