@@ -36,7 +36,8 @@ float valorFinalTensaoDC = 0;
 float R1 = 32600.0;  
 float R2 = 6810.0;
  
- 
+ // DECLARAÇÃO LED
+const int led = 13;
  
  
  
@@ -59,6 +60,9 @@ float voltsporUnidade = 0.004887586;// 5%1023
 /*float desvioACS712 = 0.045;*/
  
 void setup(){
+  // LED
+  pinMode(led1,OUTPUT);
+   
   //VALOR REFERENCIAL
   analogReference(DEFAULT);
  
@@ -76,6 +80,9 @@ void setup(){
  
   //LIGA LUZ DE FUNDO
   /*lcd.backlight();*/  
+ 
+  //DECLARA O MODO DE OPERAÇÃO DO LED
+    pinMode(led, OUTPUT);
  
   delay(500);
 }
@@ -143,6 +150,18 @@ void loop() {
    valorFinalTensaoDC = mediaTotalTensaoDC / amostragem;
    
  
+ 
+ //ACENDER LED CASO ESTEJA ABAIXO DE 7 VOLTS
+ if (valorFinalTensaoDC <= 7) {
+      Serial.println("NÍVEL DE TENSÃO FORA DO IDEAL, FAVOR TROCAR BATERIAS");
+      digitalWrite(led, HIGH);
+      delay(100);
+      digitalWrite(led, LOW);
+      delay(100);
+      digitalWrite(led, HIGH);
+      delay(100);
+      digitalWrite(led, LOW);
+  }
  
  
  
