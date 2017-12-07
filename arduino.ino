@@ -77,15 +77,14 @@ void loop() {
    //RETIRA A MEDIA DOS VALORES DE LEITURA
    valorFinalTensaoDC = mediaTotalTensaoDC / amostragem;
    
- 
- 
-    //CALCULO PWM  
-  float valor_calculo = valorFinalTensaoDC;
 
-  valor_calculo = map(valor_calculo, 0, 25, 60, 255);  
-  Serial.println("VALOR DE CALCULO:");
-  Serial.print(valor_calculo);
- 
+// FUNCAO PWM
+
+float valor_calculo = valorFinalTensaoDC;
+
+float funcao_PWM = 731.85 / valor_calculo;
+Serial.println("VALOR ATRIBUIDO A PWM: ");
+Serial.println(funcao_PWM);
  
  
  //ACENDER LED CASO ESTEJA ABAIXO DE 7 VOLTS
